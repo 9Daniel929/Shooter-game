@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Email Demo Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .owner-panel {
+      width: 280px;
+      background: #111;
+      color: #0f0;
+      padding: 15px;
+      border-left: 2px solid #333;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .notice {
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .email-box {
+      margin-top: 10px;
+      padding: 8px;
+      background: #000;
+      border: 1px solid #0f0;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <h2>Enter Your Email</h2>
+
+    <input
+      type="email"
+      id="emailInput"
+      placeholder="you@example.com"
+      required
+    />
+
+    <button onclick="submitEmail()">Submit</button>
+
+    <div class="notice">
+      ⚠️ Demo only. Your email will be shown on this page to the site owner.
+    </div>
+  </div>
+
+  <div class="owner-panel">
+    <h3>👑 Owner Panel</h3>
+    <p><strong>Owner:</strong><br>daniela4354@mytusd.org</p>
+
+    <hr>
+
+    <p><strong>Latest Email:</strong></p>
+    <div id="ownerEmail" class="email-box">None</div>
+  </div>
+
+  <script>
+    function submitEmail() {
+      const email = document.getElementById("emailInput").value.trim();
+      if (!email) return alert("Please enter an email");
+
+      document.getElementById("ownerEmail").textContent = email;
+      document.getElementById("emailInput").value = "";
+    }
+  </script>
+
+</body>
+</html>
